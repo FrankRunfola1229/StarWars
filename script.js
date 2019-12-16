@@ -1,29 +1,25 @@
-const btn = document.querySelector("button")
-
 const fetchPlanets = (data) => {
     fetch("https://swapi.co/api/planets/") //
         .then((response) => response.json())
         .then(getPlanets)
-        .then()
         .catch(error => {
             console.log(error)
         })
 
     btn.innerText = "....loading"
-
 }
+
+const btn = document.querySelector("button")
 btn.addEventListener("click", fetchPlanets)
 
 const cont = document.querySelector(".container")
-
 const table = document.createElement('table');
 const rowHeader = document.createElement('tr')
-
 const dataHeader1 = document.createElement('th');
 const dataHeader2 = document.createElement('th');
 const dataHeader3 = document.createElement('th');
 
-dataHeader1.innerText = "PlanetName"
+dataHeader1.innerText = "#"
 dataHeader2.innerText = "Population"
 dataHeader3.innerText = "PlanetName"
 
@@ -31,8 +27,8 @@ rowHeader.appendChild(dataHeader1)
 rowHeader.appendChild(dataHeader2)
 rowHeader.appendChild(dataHeader3)
 rowHeader.align = "center"
-table.appendChild(rowHeader)
 
+table.appendChild(rowHeader)
 
 let count = 0
 
@@ -44,7 +40,6 @@ const getPlanets = (data) => {
 
         const tableElem0 = document.createElement('td');
         tableElem0.innerText = `${++count}`
-
         row.appendChild(tableElem0)
 
         const tableElem1 = document.createElement('td');
