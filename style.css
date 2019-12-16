@@ -3,17 +3,14 @@
   height: 100px;
   width: 100px;
   text-align: center;
-
 }
 
 .container {
   border: 2px solid black;
   background-color: rgb(189, 201, 204);
-
 }
 
 table {
-
   border: 2px solid black;
 }
 
@@ -23,12 +20,4 @@ th {
   padding: 5px;
   width: 200px;
   font-family: "Times New Roman", Times, serif;
-
-
 }
-
-
-
-/**tableElem1.style.border = "2px solid red"
-        tableElem1.style.width = "100px"
-        "**/
