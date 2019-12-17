@@ -1,3 +1,11 @@
+const btn = document.querySelector("button");
+const cont = document.querySelector(".container");
+const table = document.querySelector("table");
+const thead = document.querySelector("table thead");
+const thCount = document.querySelector("#count");
+const thPlanetName = document.querySelector("#planetName");
+const thPopulation = document.querySelector("#population");
+
 const fetchPlanets = (data) => {
 	fetch("https://swapi.co/api/planets/") //
 		.then((response) => response.json())
@@ -5,6 +13,7 @@ const fetchPlanets = (data) => {
 		.catch((error) => {
 			console.log(`fetch error!!${error}`);
 		});
+	gears.style.display = "inline-block";
 	btn.innerText = "....loading";
 };
 
@@ -14,6 +23,7 @@ const getPlanets = (data) => {
 		createTableRow(++count, planet.name, planet.population);
 	}
 	btn.innerText = "FINISHED!!";
+	gears.style.display = "none";
 };
 
 const createTableRow = (count, name, population) => {
@@ -29,12 +39,5 @@ const createTableData = (tdDate, tr) => {
 	td.innerText = tdDate;
 	tr.appendChild(td);
 };
-
-const btn = document.querySelector("button");
 btn.addEventListener("click", fetchPlanets);
-const cont = document.querySelector(".container");
-const table = document.querySelector("table");
-const thead = document.querySelector("table thead");
-const thCount = document.querySelector("#count");
-const thPlanetName = document.querySelector("#planetName");
-const thPopulation = document.querySelector("#population");
+const gears = document.querySelector("#gearsContainer");
