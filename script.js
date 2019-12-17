@@ -1,62 +1,51 @@
+/**************************************************************
+
+ **************************************************************/
 const fetchPlanets = (data) => {
-    fetch("https://swapi.co/api/planets/") //
-        .then((response) => response.json())
-        .then(getPlanets)
-        .catch(error => {
-            console.log(error)
-        })
+	fetch("https://swapi.co/api/planets/") //
+		.then((response) => response.json())
+		.then(getPlanets)
+		.catch((error) => {
+			console.log(`fetch error!!${error}`);
+		});
+	btn.innerText = "....loading";
+};
 
-    btn.innerText = "....loading"
-}
+/**************************************************************
 
-const btn = document.querySelector("button")
-btn.addEventListener("click", fetchPlanets)
-
-const cont = document.querySelector(".container")
-const table = document.createElement('table');
-const rowHeader = document.createElement('tr')
-const dataHeader1 = document.createElement('th');
-const dataHeader2 = document.createElement('th');
-const dataHeader3 = document.createElement('th');
-
-dataHeader1.innerText = "#"
-dataHeader2.innerText = "Population"
-dataHeader3.innerText = "PlanetName"
-
-rowHeader.appendChild(dataHeader1)
-rowHeader.appendChild(dataHeader2)
-rowHeader.appendChild(dataHeader3)
-rowHeader.align = "center"
-
-table.appendChild(rowHeader)
-
-let count = 0
-
+ **************************************************************/
 const getPlanets = (data) => {
-    for (let planet of data.results) {
-        console.log(planet)
-        const row = document.createElement('tr');
-        row.align = "center"
+	for (let planet of data.results) {
+		createTableRow(++count, planet.name, planet.population);
+	}
+	btn.innerText = "FINISHED!!";
+};
+/**************************************************************
 
-        const tableElem0 = document.createElement('td');
-        tableElem0.innerText = `${++count}`
-        row.appendChild(tableElem0)
+ **************************************************************/
+const createTableRow = (count, name, population) => {
+	const tr = document.createElement("tr");
+	createTableData(count, tr);
+	createTableData(name, tr);
+	createTableData(population, tr);
+	table.appendChild(tr);
+};
+/**************************************************************
 
-        const tableElem1 = document.createElement('td');
-        tableElem1.innerText = planet.name
-        row.appendChild(tableElem1)
+ **************************************************************/
+const createTableData = (tdDate, tr) => {
+	const td = document.createElement("td");
+	td.innerText = tdDate;
+	tr.appendChild(td);
+};
 
-        const tableElem3 = document.createElement('td');
-        tableElem3.innerText = planet.population
-        row.appendChild(tableElem3)
+let count = 0;
+const btn = document.querySelector("button");
+btn.addEventListener("click", fetchPlanets);
 
-        table.appendChild(row)
-        console.log(planet.name)
-
-        btn.innerText = "FINISHED!!"
-    }
-}
-
-
-cont.align = "center"
-cont.appendChild(table)
+const cont = document.querySelector(".container");
+const table = document.querySelector("table");
+const thead = document.querySelector("table thead");
+const thCount = document.querySelector("#count");
+const thPlanetName = document.querySelector("#planetName");
+const thPopulation = document.querySelector("#population");
