@@ -11,10 +11,11 @@
 </head>
 
 <body>
+    <!-- ***************** CONTAINER ********************-->
+
     <div class="container my-5 py-4 align text-center">
-        <!-- ---------------------------------------------->
-        <!--                     Gears                   -->
-        <!-- ---------------------------------------------->
+
+        <!-- ***************** GEARS ********************-->
         <div id="gearsContainer" class="p-5">
             <div class="row justify-content-lg-center py-1">
                 <div id="loadingGears" class="col-lg-2  my-2">
@@ -55,22 +56,30 @@
 
         </div>
 
-
+        <!-- ***************** BUTTON ********************-->
         <button class="btn btn-primary my-3">
             Search
         </button>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th id="count"> </th>
-                    <th id="planetName">planetName</th>
-                    <th id="population">population</th>
-                </tr>
-            </thead>
 
-        </table>
-    </div>
-    <script src="scripts/script.js"></script>
+        <!-- ***************** TABLE ********************-->
+        <div class="table-responsive-sm">
+            <table class="table table-striped table-dark">
+
+                <thead>
+                    <tr>
+                        <th id="count" scope="col"> </th>
+                        <th id="planetName" scope="col">planetName</th>
+                        <th id="population" scope="col">population</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+
+                <tbody>
+            </table>
+        </div>
+
+        <script src="scripts/script.js"></script>
 </body>
 
 </html>

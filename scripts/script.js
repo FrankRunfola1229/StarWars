@@ -1,6 +1,6 @@
 const btn = document.querySelector("button");
 const cont = document.querySelector(".container");
-const table = document.querySelector("table");
+const tableBody = document.querySelector("table tbody");
 const thead = document.querySelector("table thead");
 const thCount = document.querySelector("#count");
 const thPlanetName = document.querySelector("#planetName");
@@ -27,10 +27,11 @@ const getPlanets = (data) => {
 
 const createTableRow = (count, name, population) => {
 	const tr = document.createElement("tr");
+	tr.setAttribute("scope", "row");
 	createTableData(count, tr);
 	createTableData(name, tr);
 	createTableData(population, tr);
-	table.appendChild(tr);
+	tableBody.appendChild(tr);
 };
 
 const createTableData = (tdDate, tr) => {
