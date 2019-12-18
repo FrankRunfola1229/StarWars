@@ -15,7 +15,7 @@ const fetchPlanets = (data) => {
 		.then(getPlanets)
 		.catch((error) => console.log(`fetch error!!${error}`)); // PROMISE RETURNED AS REJECTED
 	// ....WHILE API IS LOADING.....
-	gears.style.display = "inline-block"; // SHOW LOADING GEARS
+	gears.style.visibility = "visible"; // SHOW LOADING GEARS
 	btn.innerText = "....loading";
 };
 
@@ -23,8 +23,8 @@ const getPlanets = (data) => {
 	for (let planet of data.results) {
 		createTableRow(++count, planet.name, planet.population);
 	}
-	btn.innerText = "Finished";
-	gears.style.display = "none"; // HIDE LOADING GEARS
+	btn.innerText = "Load More";
+	gears.style.visibility = "hidden"; // HIDE LOADING GEARS
 	total.innerText = `Total=${count}`;
 };
 
