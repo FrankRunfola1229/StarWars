@@ -2,21 +2,25 @@ button {
 	display: block;
 	margin: auto;
 }
+
+html {
+	background-color: rgb(0, 162, 255);
+}
 body {
-	width: 50vw;
+	background-color: #dddddd;
 }
 .container {
-	width: 30em;
 	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-
+	margin: auto 20vw;
+	height: auto;
+	width: 40vw;
 	background-color: rgb(38, 66, 61);
 	box-shadow: 10px 10px 5px #8d8a89;
 }
 
 table {
-	margin: auto;
 	box-shadow: 10px 10px 5px #aaaaaa;
-	width: auto;
+	margin: 0% auto; /** vertical, horizontal**/
 	background-color: rgb(180, 214, 211);
 	border-collapse: separate;
 	border-spacing: 2px;
@@ -31,11 +35,11 @@ tr:nth-child(even) {
 	background-color: rgb(180, 183, 214);
 }
 
-td,
-th {
+.table td,
+.table th {
 	text-align: center;
 	border: 1px solid #dddddd;
-	padding: 5px 5px;
+	padding: 1px 2px;
 }
 
 #gearsContainer {
@@ -74,5 +78,20 @@ th {
 @keyframes spin-reverse {
 	50% {
 		transform: rotate(-360deg);
+	}
+}
+
+@media only screen and (max-width: 800px) {
+	body {
+		background-color: #aaaaaa;
+	}
+	.container {
+		width: 0.3fr;
+	}
+
+	.table th,
+	.table td,
+	.btn {
+		font-size: 20%;
 	}
 }
