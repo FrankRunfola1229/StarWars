@@ -6,14 +6,14 @@ button {
 .container {
 	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 	width: 50vw;
-	background-color: rgb(189, 204, 201);
+	background-color: rgb(38, 66, 61);
 	box-shadow: 10px 10px 5px #8d8a89;
 }
 
 table {
 	margin: auto;
 	box-shadow: 10px 10px 5px #aaaaaa;
-	width: 50%;
+	width: 90%;
 	background-color: rgb(180, 214, 211);
 	border-collapse: separate;
 	border-spacing: 2px;
