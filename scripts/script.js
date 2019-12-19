@@ -8,9 +8,17 @@ const thCount = document.querySelector("#count");
 const thPlanetName = document.querySelector("#planetName");
 const thPopulation = document.querySelector("#population");
 let count = 0;
+let url = "https://swapi.co/api/planets/";
 
-const fetchPlanets = (data) => {
-	fetch("https://swapi.co/api/planets/") // leave fetch while API loads
+const fetchNextPlanets = () => {
+	if (!url) {
+		while (tableBody.hasChildNodes()) {
+			tableBody.removeChild(tableBody.firstChild);
+		}
+		url = "https://swapi.co/api/planets/"; // Start from beggining
+	}
+
+	fetch(url)
 		.then((response) => response.json()) // PROMISE RETURNED AS RESOLVED
 		.then(getPlanets)
 		.catch((error) => console.log(`fetch error!!${error}`)); // PROMISE RETURNED AS REJECTED
@@ -21,19 +29,16 @@ const fetchPlanets = (data) => {
 
 const getPlanets = (data) => {
 	for (let planet of data.results) {
-		createTableRow(++count, planet.name, planet.population);
+		const tr = document.createElement("tr");
+		createTh(++count, tr);
+		createTd(planet.name, tr);
+		createTd(planet.population, tr);
+		tableBody.appendChild(tr);
 	}
-	btn.innerText = "Load More";
+	btn.innerText = `get ${url}`;
 	gears.style.visibility = "hidden"; // HIDE LOADING GEARS
 	total.innerText = `Total=${count}`;
-};
-
-const createTableRow = (count, name, population) => {
-	const tr = document.createElement("tr");
-	createTh(count, tr);
-	createTd(name, tr);
-	createTd(population, tr);
-	tableBody.appendChild(tr);
+	url = data.next;
 };
 
 // Create Table Header elem
@@ -51,4 +56,5 @@ const createTd = (data, tr) => {
 	tr.appendChild(td);
 };
 
-btn.addEventListener("click", fetchPlanets);
+btn.textContent = url;
+btn.addEventListener("click", fetchNextPlanets);
