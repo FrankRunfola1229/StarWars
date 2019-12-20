@@ -16,7 +16,6 @@ body {
 .flex-container {
 	justify-content: center;
 	text-align: center;
-	margin-top: .2rem;
 }
 
 img {
@@ -28,6 +27,7 @@ img {
 button {
 	display: block;
 	margin: auto;
+	margin: 1px;
 }
 #total {
 	font-size: 1.5em;
@@ -41,6 +41,11 @@ table {
 	background-color: rgb(180, 214, 211);
 	border-collapse: separate;
 	border-spacing: 2px;
+}
+
+.table tbody th,
+.table tbody td {
+	padding: 3px;
 }
 
 /***********************
