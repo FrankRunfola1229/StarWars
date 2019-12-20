@@ -35,7 +35,7 @@ const getPlanets = (data) => {
 		createTd(planet.population, tr);
 		tableBody.appendChild(tr);
 	}
-	btn.innerText = `get ${url}`;
+	btn.innerText = `GET    ${url}`;
 	gears.style.visibility = "hidden"; // HIDE LOADING GEARS
 	total.innerText = `Total=${count}`;
 	url = data.next;
