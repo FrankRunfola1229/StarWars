@@ -136,10 +136,11 @@ table {
 
 	}
 
-	.table th,
+	.table {
 
-	.table td {
-		font-size: 50%;
-		padding: 1em;
+	    .td, .th {
+		 font-size: 50%;
+		 padding: 1em;
+            }
 	}
 }
