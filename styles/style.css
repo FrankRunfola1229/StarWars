@@ -8,9 +8,9 @@ body {
 
 .container {
 	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-	margin: auto 10vw;
+	margin: auto;
 	height: auto;
-	width: 80vw;
+
 	background-color: rgb(169, 197, 192);
 	box-shadow: 5px 5px 15px 10px #8d8a89;
 }
@@ -35,12 +35,6 @@ button {
 	font-size: 1.5em;
 	text-align: center;
 }
-
-.table {
-	margin: auto;
-	width: 70%;
-}
-
 table {
 	text-align: center;
 	box-shadow: 10px 10px 5px #aaaaaa;
@@ -48,16 +42,20 @@ table {
 	border-collapse: separate;
 	border-spacing: 2px;
 }
-
-.table thead th,
-
-.table thead td {
-
-	font-size: 1.2rem;
-
+.table {
+	margin: auto;
+	width: 60%;
 }
 
-
+.table thead th,
+.table thead td {
+	font-size: 1.3rem;
+	padding: 5px;
+}
+.table tbody th,
+.table tbody td {
+	padding: 4px;
+}
 
 /***********************
 		GEARS START
@@ -115,32 +113,33 @@ table {
 	}
 
 	.container {
-		width: 0.1fr;
+		width: 90%;
+		height: 50%;
 	}
 
 	img {
 		width: 10em;
 	}
-
+	.table {
+		width: 100%;
+	}
 	#title {
 		font-size: 2em;
 	}
 
-	#total {
-		font-size: .6em;
+	.table thead th,
+	.table thead td {
+		font-size: 1rem;
 	}
-
-	#myButton {
-		font-size: .5em;
-		padding: .5em;
-
+	.table tbody th,
+	.table tbody td {
+		font-size: .8rem;
 	}
+}
 
-	.table {
-
-	    .td, .th {
-		 font-size: 50%;
-		 padding: 1em;
-            }
+@media only screen and (max-width: 400px) {
+	.btn {
+		font-size: .8em;
+		padding: .4em;
 	}
 }
